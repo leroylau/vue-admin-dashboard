@@ -2,31 +2,41 @@
   <div class="container">
     <RequestAccount />
     <div class="login">
-      <img src="@/assets/SwiftUI-Icon.png" alt v-show="isDarkMode" class="iconImage" />
-      <img src="@/assets/logo.png" alt v-if="!isDarkMode" class="iconImage" />
-      <h4 :class="{'light-text' : isDarkMode, 'dark-text' : !isDarkMode}">Sign with Apple Account</h4>
-      <form @submit.prevent="onSubmit">
-        <input
-          type="email"
-          placeholder="Email"
-          :class="{'light-field' : isDarkMode, 'dark-field' : !isDarkMode}"
-          v-model="email"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          :class="{'light-field' : isDarkMode, 'dark-field' : !isDarkMode}"
-          v-model="password"
-          required
-        />
-        <button>Sign In</button>
-      </form>
-      <router-link
-        to="/recover"
-        :class="{'light-link' : isDarkMode, 'dark-link' : !isDarkMode}"
-      >Forgot your password?</router-link>
-      <ThemeSwitch />
+      <div>
+        <img src="@/assets/SwiftUI-Icon.png" alt v-show="isDarkMode" class="iconImage" />
+      </div>
+      <div>
+        <img src="@/assets/logo.png" alt v-if="!isDarkMode" class="iconImage" />
+      </div>
+      <div></div>
+      <div>
+        <form @submit.prevent="onSubmit">
+          <input
+            type="email"
+            placeholder="Email"
+            :class="{'light-field' : isDarkMode, 'dark-field' : !isDarkMode}"
+            v-model="email"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            :class="{'light-field' : isDarkMode, 'dark-field' : !isDarkMode}"
+            v-model="password"
+            required
+          />
+          <button>Sign In</button>
+        </form>
+      </div>
+      <div>
+        <router-link
+          to="/recover"
+          :class="{'light-link' : isDarkMode, 'dark-link' : !isDarkMode}"
+        >Forgot your password?</router-link>
+      </div>
+      <div>
+        <ThemeSwitch />
+      </div>
     </div>
   </div>
 </template>
