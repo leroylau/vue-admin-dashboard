@@ -19,3 +19,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

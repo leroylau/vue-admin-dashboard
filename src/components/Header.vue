@@ -10,11 +10,3 @@ export default {
   name: "Header"
 };
 </script>
-
-<style lang="scss" scoped>
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-</style>
