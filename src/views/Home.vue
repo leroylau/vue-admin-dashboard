@@ -1,14 +1,8 @@
 <template>
   <div class="home">
-    <div>
-      <Header />
-    </div>
-    <div>
-      <img alt="Vue logo" src="../assets/logo.png" />
-    </div>
-    <div>
-      <HelloWorld msg="Welcome to Your Vue.js App" />
-    </div>
+    <Header />
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
@@ -28,6 +22,8 @@ export default {
 
 <style lang="scss" scoped>
 .home {
+  width: 50%;
+  height: 50%;
   vertical-align: middle;
 }
 </style>
