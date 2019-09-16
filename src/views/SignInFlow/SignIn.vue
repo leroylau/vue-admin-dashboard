@@ -5,23 +5,23 @@
       <img src="@/assets/SwiftUI-Icon.png" alt v-show="isDarkMode" class="iconImage" />
       <img src="@/assets/logo.png" alt v-if="!isDarkMode" class="iconImage" />
       <h4 :class="{'light-text' : isDarkMode, 'dark-text' : !isDarkMode}">Sign with Apple Account</h4>
-      <div>
+      <form @submit.prevent="onSubmit">
         <input
           type="email"
           placeholder="Email"
           :class="{'light-field' : isDarkMode, 'dark-field' : !isDarkMode}"
+          v-model="email"
+          required
         />
-      </div>
-      <div>
         <input
           type="password"
           placeholder="Password"
           :class="{'light-field' : isDarkMode, 'dark-field' : !isDarkMode}"
+          v-model="password"
+          required
         />
-      </div>
-      <div>
         <button>Sign In</button>
-      </div>
+      </form>
       <router-link
         to="/recover"
         :class="{'light-link' : isDarkMode, 'dark-link' : !isDarkMode}"
@@ -34,6 +34,8 @@
 <script>
 import RequestAccount from "@/components/RequestAccount";
 import ThemeSwitch from "@/components/ThemeSwitch";
+//import * as netlifyIdentityWidget from "netlify-identity-widget";
+import { auth } from "@/main";
 
 export default {
   name: "SignIn",
@@ -41,11 +43,32 @@ export default {
     RequestAccount,
     ThemeSwitch
   },
+  data() {
+    email: null;
+    password: null;
+  },
   computed: {
     isDarkMode: function() {
       return this.$store.getters.isDarkMode;
+    },
+    onSubmit: function() {
+      // refer to the v-model
+      const email = this.email;
+      const password = this.password;
+
+      auth
+        .login(email, password, true)
+        .then(response => {
+          this.$router.replace("/");
+        })
+        .catch(error => {
+          alert("Error: " + error);
+        });
     }
-  }
+  } /* ,
+  mounted() {
+    netlifyIdentityWidget.open();
+  } */
 };
 </script>
 
