@@ -102,8 +102,6 @@ export default {
 
 .login {
   width: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  vertical-align: middle;
 }
 </style>
