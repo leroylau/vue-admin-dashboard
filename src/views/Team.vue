@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>Team</h2>
+    <h2 :class="{'light-text' : isDarkMode, 'dark-text' : !isDarkMode}">Team</h2>
     <div class="cards">
       <transition appear appear-active-class="animated flipInX">
         <a class="card card-1" :class="{'light-card' : !isDarkMode, 'dark-card' : isDarkMode}">

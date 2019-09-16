@@ -57,7 +57,7 @@ export default {
       const password = this.password;
 
       auth
-        .login(email, password, true)
+        .login(email, password)
         .then(response => {
           this.$router.replace("/");
         })
@@ -92,5 +92,8 @@ export default {
 
 .login {
   width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link>|
-    <router-link to="/about">About</router-link>
+    <router-link to="/team">About</router-link>
   </div>
 </template>
 
@@ -12,4 +12,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>
