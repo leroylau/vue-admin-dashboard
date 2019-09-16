@@ -22,8 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  width: 50%;
-  height: 50%;
   vertical-align: middle;
+  align-items: center;
 }
 </style>
