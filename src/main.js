@@ -13,7 +13,7 @@ netlifyIdentityWidget.init();
 // initlize gotrue-js for netlify
 export const auth = new GoTrue({
   APIUrl: "https://vue-william.netlify.com/.netlify/identity",
-  setCookie: true
+  setCookie: false
 });
 
 new Vue({
