@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Notification v-if="hasText" :text="text" />
     <RequestAccount />
     <div class="login">
       <img src="@/assets/SwiftUI-Icon.png" alt v-show="isDarkMode" class="iconImage" />
@@ -33,6 +34,7 @@
 <script>
 import RequestAccount from "@/components/RequestAccount";
 import ThemeSwitch from "@/components/ThemeSwitch";
+import Notification from "@/components/Notification";
 //import * as netlifyIdentityWidget from "netlify-identity-widget";
 import { auth } from "@/main";
 
@@ -40,11 +42,14 @@ export default {
   name: "SignIn",
   components: {
     RequestAccount,
-    ThemeSwitch
+    ThemeSwitch,
+    Notification
   },
   data() {
     email: null;
     password: null;
+    hasText: false;
+    text: "";
   },
   computed: {
     isDarkMode: function() {
@@ -64,10 +69,15 @@ export default {
           alert("Error: " + error);
         });
     }
-  } /* ,
+  },
   mounted() {
-    netlifyIdentityWidget.open();
-  } */
+    const params = this.$route.params;
+
+    if (params.hasText) {
+      this.hasText = true;
+      this.text = "you have log out!";
+    }
+  }
 };
 </script>
 

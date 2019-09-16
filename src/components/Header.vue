@@ -16,7 +16,10 @@ export default {
       user
         .logout()
         .then(response => {
-          this.$router.replace("singin");
+          this.$router.push({
+            name: "singin",
+            params: { userLoggedOut: true }
+          });
         })
         .catch(error => {
           alert("Error: " + error);
