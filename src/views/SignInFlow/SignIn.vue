@@ -56,7 +56,7 @@ export default {
       const password = this.password;
 
       auth
-        .login(email, password, false)
+        .login(email, password, true)
         .then(response => {
           this.$router.replace("/");
         })
